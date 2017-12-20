@@ -1,0 +1,30 @@
+<html>
+<head>
+<h1><font face ="helvetica">Rate an Event</h1>
+</head>
+<body>
+
+<h3>Submit Your Event Rating:</h3>
+<form action="/submitRating" method="POST">
+  	<label for="event">Event Name:</label>
+  	<select name = "event" id = "event">
+  	{% for line in events %}
+ 	 	<option>{{line.event_id}} {{line.title}}</option>
+ 	{% endfor %}
+ 	</select></br>
+  <label for="rating">Event Rating*:</label>
+  <select name = "rating" id = "rating">
+  		<option>0</option>
+ 	 	<option>1</option>
+ 	 	<option>2</option>
+ 	 	<option>3</option>
+ 	 	<option>4</option>
+ 	 	<option>5</option>
+ 	</select>
+ 	</br><button type="submit" name="submit" value="submit">Submit Rating</button>
+ 	<p><font size="1px"> *ratings are out of 5 // 0 = terrible // 5 = GREAT!*</font></p>
+</form>
+
+<a href="/home">Go back</a>
+</body>
+</html>

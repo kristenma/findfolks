@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search for events</title>
+</head>
+<body>
+
+{% if not events %}
+ 	<b>No events available that you are interested in</b>
+ 	<br>
+{% endif %}
+
+{% if events %}
+
+<b> Events that share your interest! </b>
+<br>
+
+<style type = "text/css">
+ 	table, th, td
+ 	{
+ 	 	border: 1px solid black;
+ 	}
+</style>
+
+<table>
+ 	<th>Event ID</th>
+ 	<th>Title</th>
+ 	<th>Description</th>
+ 	<th>Start Time</th>
+ 	<th>End Time</th>
+ 	<th>Location</th>
+ 	<th>Zipcode</th>
+
+
+{% for line in events %}
+ 	<tr>
+ 	 	<td>{{line.event_id}}</td>
+ 	 	<td>{{line.title}}</td>
+ 	 	<td>{{line.description}}</td>
+ 	 	<td>{{line.start_time}}</td>
+ 	 	<td>{{line.end_time}}</td>
+ 	 	<td>{{line.location_name}}</td>
+ 	 	<td>{{line.zipcode}}</td>
+ 	</tr>
+{% endfor %}
+</table>
+
+<b>Which event would you like to sign up for?</b>
+<form action='/signup' method = "POST">
+ 	<label for="event">Options:</label>
+ 	<select name = "event" id = "event">
+ 	{% for line in events %}
+ 	 	<option>{{line.event_id}} </option>
+ 	{% endfor %}
+ 	</select>
+	<button type="submit" name="submit" value="submit">Sign up </button>
+</form>
+
+<br>
+
+{% endif %}
+
+ {% if success %}
+	<p class="error"><strong>Success:</strong> {{success}}</p>
+{% endif %}
+
+<a href = "/home">Go back to home</a>
+</body>
+</html>

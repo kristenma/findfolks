@@ -1,0 +1,58 @@
+<html>
+<head>
+<title> FindFolks </title>
+</head>
+<body>
+
+<h1>Events happening in the next three days</h1>
+<style type = "text/css">
+ 	table, th, td
+ 	{
+ 	 	border: 1px solid black;
+ 	}
+</style>
+
+<table>
+ 	<th>Title</th>
+ 	<th>Description</th>
+ 	<th>Start Time</th>
+ 	<th>End Time</th>
+ 	<th>Location</th>
+ 	<th>Zipcode</th>
+
+
+{% for line in events %}
+ 	<tr>
+ 	 	<td>{{line.title}}</td>
+ 	 	<td>{{line.description}}</td>
+ 	 	<td>{{line.start_time}}</td>
+ 	 	<td>{{line.end_time}}</td>
+ 	 	<td>{{line.location_name}}</td>
+ 	 	<td>{{line.zipcode}}</td>
+ 	</tr>
+{% endfor %}
+</table>
+
+<br>
+<b> Groups that share your interest! </b>
+<br>
+
+<form action='/interest' method = "POST">
+ 	<label for="interest">Options:</label>
+ 	<select name = "interest" id = "interest">
+ 	{% for line in interests %}
+ 	 	<option>{{line.category}}, {{line.keyword}} </option>
+ 	{% endfor %}
+ 	</select>
+	<button type="submit" name="submit" value="submit">Submit </button>
+ 	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<br>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</body>
+
+</html>

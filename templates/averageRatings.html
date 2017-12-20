@@ -1,0 +1,31 @@
+<html>
+<head>
+<h1><font face='helvetica'>Average Ratings for Events Organized by Groups You're a Part of</h1>
+</head>
+<body>
+<style type = "text/css">
+ 	table, th, td
+ 	{
+ 	 	border: 1px solid black;
+ 	}
+</style>
+
+<table>
+ 	<th>Event Name</th>
+ 	<th>Group Name</th>
+ 	<th>Average Rating</th>
+	
+
+{% for line in rates %}
+ 	<tr>
+ 	 	<td>{{line.title}}</td>
+ 	 	<td>{{line.group_id}}</td>
+ 	 	<td>{{line.rate}}</td>
+ 	</tr>
+{% endfor %}
+</table>
+
+</br>
+<a href="/home">Go back</a>
+</body>
+</html>

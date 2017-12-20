@@ -1,0 +1,19 @@
+<html>
+<head><h1><font face="helvetica">Post in an Event Page</h1></head>
+<body>
+
+	<form action="/eventPosted" method="POST">
+  		<label for="event">Select the Event:</label>
+  		<select name = "event" id = "event">
+  			{% for line in events %}
+ 	 			<option>{{line.event_id}} {{line.title}}</option>
+ 			{% endfor %}
+ 		</select></br>
+  		<label for="rating">Write your post here:</label>
+  		<input type="text" name="post" value="">
+ 		</br><button type="submit" name="submit" value="submit">Post to Event</button>
+	</form>
+	</br><a href="/home">Go back</a>
+
+</body>
+</html>

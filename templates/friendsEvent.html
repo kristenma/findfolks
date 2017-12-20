@@ -1,0 +1,35 @@
+<html>
+<head>
+<h1><font face='helvetica'>See Events your Friends are Attending</h1>
+</head>
+<body>
+<style type = "text/css">
+ 	table, th, td
+ 	{
+ 	 	border: 1px solid black;
+ 	}
+</style>
+
+<table>
+ 	<th>Friend</th>
+ 	<th>Event Name</th>
+
+
+{% for line in friend %}
+ 	<tr>
+ 	 	<td>{{line.username}}</td>
+ 	 	<td>{{line.title}}</td>
+ 	</tr>
+{% endfor %}
+</table>
+
+<form action='/friendsEvent' method = "POST">
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+</br>
+<a href="/home">Go back</a>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>joinGroups</title>
+</head>
+<body>
+{%if not groups%}
+No groups were found or you are already in all the groups!
+<br>
+<a href="/home">Go home</a>
+{%endif%}
+
+{% if groups %}
+	<h1>List of all the groups are as follows</h1> <br>
+	
+	<form name = "belongsToForm", action = "/populateBelongsTo" method = "POST">
+	<table border = "1">
+		<th>selection</th>
+		<th>group_id</th>
+		<th>group_name</th>
+		<th>description</th>
+		<th>creator</th>
+		{%for groups in groups%}
+		<tr>
+			<td><input type="radio" name="group_id" value = {{groups.group_id}}></td>
+			<td>{{groups.group_id}}</td>
+			<td>{{groups.group_name}}</td>
+			<td>{{groups.description}}</td>
+			<td>{{groups.creator}}</td>
+		</tr>
+
+		{% endfor %}
+	</table>
+
+	<input type="submit" value = "Join Selected Group" />
+	</form>
+	<a href="/home">Go home</a>
+{% endif %}
+
+
+
+</body>
+</html>

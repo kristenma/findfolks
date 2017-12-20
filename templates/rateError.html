@@ -1,0 +1,12 @@
+ <html>
+ <head></head>	
+<body>
+<form action='/rateError' method = "POST">
+	{% if error %}
+		<p class="error"><strong><font face="helvetica">Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+	<a href="/home">Go Home</a>
+</body>
+ </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>create an event</title>
+</head>
+<body>
+
+{% if not groups %}
+ 	<b>You can not create any events for any groups</b>
+ 	<br>
+{% endif %}
+
+{% if groups %}
+
+<b> Groups you can create events for </b>
+<br>
+
+<style type = "text/css">
+ 	table, th, td
+ 	{
+ 	 	border: 1px solid black;
+ 	}
+</style>
+
+<table>
+ 	<th>ID</th>
+ 	<th>name</th>
+ 	<th>Description</th>
+
+
+{% for line in groups %}
+ 	<tr>
+ 	 	<td>{{line.group_id}}</td>
+ 	 	<td>{{line.group_name}}</td>
+ 	 	<td>{{line.description}}</td>
+ 	</tr>
+{% endfor %}
+</table>
+
+<b>Which group would you like to create an event for?</b>
+<form action='/createEventForm' method = "POST">
+ 	<label for="group">Options:</label>
+ 	<select name = "group" id = "group">
+ 	{% for line in groups %}
+ 	 	<option>{{line.group_id}} </option>
+ 	{% endfor %}
+ 	</select>
+	<button type="submit" name="submit" value="submit">Create! </button>
+</form>
+{% endif %}
+
+ {% if success %}
+	<p class="error"><strong>Success:</strong> {{success}}</p>
+{% endif %}
+
+<a href = "/home">Go back to home</a>
+</body>
+</html>

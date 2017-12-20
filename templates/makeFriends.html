@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>makeFriends</title>
+</head>
+
+<body>
+{%if not listOfmembers%}
+No friends in the region <br>
+<a href = '/home'> Home </a>
+{%endif%}
+
+{%if listOfmembers%}
+	<form name = "friendsForm", action = "/makeFriendsAuth" method = "POST">
+		<table border = "1">
+			<th>Select</th>
+			<th>Username</th>
+			{%for member in listOfmembers%}
+				<tr>
+					<td><input type="radio" name="friend_name" value = {{member.username}}></td>
+					<td>{{member.username}}</td>
+				</tr>
+			{%endfor%}
+		</table>
+	
+	<input type="submit" value = "Become friends with the selected person" /> 
+	</form>	
+	<br>
+	<a href="/home">Go home</a>
+{%endif%}
+
+</body>
+</html>

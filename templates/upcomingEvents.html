@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Upcoming Events</title>
+</head>
+<body>
+
+
+{% if not threeDayEvents and not currentDayEvents %}
+ 	<b>You have no events signed up</b><br>
+{% endif %}
+
+{% if currentDayEvents %}
+
+<h1>Events happening today</h1>
+ 	<style type = "text/css">
+ 	 	table, th, td
+ 	 	{
+ 	 	 	border: 1px solid black;
+ 	 	}
+ 	</style>
+
+ 	<table>
+ 	 	<th>Title</th>
+ 	 	<th>Description</th>
+ 	 	<th>Start Time</th>
+ 	 	<th>End Time</th>
+ 	 	<th>Location</th>
+ 	 	<th>Zipcode</th>
+
+
+ 	{% for line in currentDayEvents %}
+ 	 	<tr>
+ 	 	 	<td>{{line.title}}</td>
+ 	 	 	<td>{{line.description}}</td>
+ 	 	 	<td>{{line.start_time}}</td>
+ 	 	 	<td>{{line.end_time}}</td>
+ 	 	 	<td>{{line.location_name}}</td>
+ 	 	 	<td>{{line.zipcode}}</td>
+ 	 	</tr>
+ 	{% endfor %}
+ 	</table>
+
+{% endif %}
+
+{% if threeDayEvents %}
+
+ 	<h1>Events happening in the next three days</h1>
+ 	<style type = "text/css">
+ 	 	table, th, td
+ 	 	{
+ 	 	 	border: 1px solid black;
+ 	 	}
+ 	</style>
+
+ 	<table>
+ 	 	<th>Title</th>
+ 	 	<th>Description</th>
+ 	 	<th>Start Time</th>
+ 	 	<th>End Time</th>
+ 	 	<th>Location</th>
+ 	 	<th>Zipcode</th>
+
+
+ 	{% for line in threeDayEvents %}
+ 	 	<tr>
+ 	 	 	<td>{{line.title}}</td>
+ 	 	 	<td>{{line.description}}</td>
+ 	 	 	<td>{{line.start_time}}</td>
+ 	 	 	<td>{{line.end_time}}</td>
+ 	 	 	<td>{{line.location_name}}</td>
+ 	 	 	<td>{{line.zipcode}}</td>
+ 	 	</tr>
+ 	{% endfor %}
+ 	</table>
+{% endif %}
+
+
+
+<br>
+<a href = "/search">Sign up for events here</a><br>
+<a href = "/home">Go back to home</a>
+</body>
+</html>

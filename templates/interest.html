@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Interests</title>
+</head>
+<body>
+
+
+ <h1>Groups</h1>
+ <style type = "text/css">
+ 	table, th, td
+ 	{
+ 	 	border: 1px solid black;
+ 	}
+ </style>
+
+ <table>
+ <th>Name</th>
+ <th>Description</th>
+
+ {% for line in groups %}
+ <tr>
+ 	<td>{{line.group_name}}</td>
+ 	<td>{{line.description}}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+<a href="/">Go back</a>
+
+</body>
+</html>

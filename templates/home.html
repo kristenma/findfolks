@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Home</title>
+</head>
+<body>
+<h1>Welcome {{username}} </h1>
+<b>What would you like to do? </b><br>
+<form action="/upcomingEvents" method = "POST">
+    <input type="submit" value="View my upcoming events" />
+</form>
+
+<form action="/search" method = "POST">
+    <input type="submit" value="Search for events" />
+</form>
+
+<form action="/createEvent" method = "POST">
+    <input type="submit" value="Create an event" />
+</form>
+
+<form action="/rateEvent" method = "POST">
+    <input type="submit" value="Rate an event" />
+</form>
+
+<form action="/averageRatings" method = "POST">
+    <input type="submit" value="See average ratings" />
+</form>
+
+<form action="/friendsEvent" method = "POST">
+    <input type="submit" value="See friends' events" />
+</form>
+
+<form action="/postInEvent" method = "POST">
+    <input type="submit" value="Post in Event" />
+</form>
+
+<form action="/makeFriends" method = "POST">
+    <input type="submit" value="Make friends" />
+</form>
+
+<form action="/joinGroup" method = "POST">
+    <input type="submit" value="Join a Group" />
+</form>
+
+<form action="/createGroup" method = "POST">
+    <input type="submit" value="Create a group" />
+</form>
+
+<form action="/grantAccess" method = "POST">
+    <input type="submit" value="Grant access to a member to create events" />
+</form>
+
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

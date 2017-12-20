@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grant Access</title>
+</head>
+<body>
+
+{%if not groups%}
+Sorry, you don't have admin privilege to any of the groups you belong to 
+{%endif%}
+
+{%if groups%}
+groups
+<form name = "chooseGroup", action = "/grantAccessAuth" method = "POST">
+	<table border = "1">
+		<th></th>
+		<th>Group ID</th>
+		<th>Group Name</th>
+		{%for group in groups%}
+			<tr>
+				<td><input type="radio" name="group_id" value = {{group.group_id}}></td>
+				<td>{{group.group_id}}</td>
+				<td>{{group.group_name}}</td>
+			</tr>
+		{%endfor%}
+	</table>
+
+	<input type="submit" value = "Select Group" /> 
+</form>
+<br>
+<a href="/home">Home</a>
+{%endif%}
+
+
+</body>
+</html>
