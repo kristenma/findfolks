@@ -1,0 +1,6 @@
+CREATE TABLE post_in (event_id int(20),
+                      username varchar(20),
+                      post varchar(50),
+                      primary key (event_id, username, post),
+                      foreign key (event_id) references an_event (event_id), 
+                      foreign key (username) references sign_up (username))
